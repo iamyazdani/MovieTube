@@ -19,7 +19,7 @@ const connectDB = () => {
   const connectionInstance = mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then (() => {
     // console.log(connectionInstance)
-    // console.log(`MongoDB Connected Successfully!! DB HOST: ${connectionInstance.connection.path}`)
+    // console.log(`MongoDB Connected Successfully!! DB HOST: ${connectionInstance.connection.host}`)
     console.log(`MongoDB Connected Successfully!!`);
   })
   .catch ((error) => {
