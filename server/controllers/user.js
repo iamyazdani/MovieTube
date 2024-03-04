@@ -6,6 +6,7 @@ import Video from "../models/Video.js";
 //   console.log("test is working!!");
 // }
 
+// Controller for Update User
 export const update = async (req, res, next) => {
   if (req.params.id === req.user.id) {
     try {
@@ -25,6 +26,7 @@ export const update = async (req, res, next) => {
   }
 };
 
+// Controller for Delete User
 export const deleteUser = async (req, res, next) => {
   if (req.params.id === req.user.id) {
     try {
@@ -38,6 +40,7 @@ export const deleteUser = async (req, res, next) => {
   }
 };
 
+// Controller to Get User Info
 export const getUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
@@ -47,6 +50,7 @@ export const getUser = async (req, res, next) => {
   }
 };
 
+// Controller for Subscribe a new User
 export const subscribe = async (req, res, next) => {
   try {
     await User.findByIdAndUpdate(req.user.id, {
@@ -61,6 +65,7 @@ export const subscribe = async (req, res, next) => {
   }
 };
 
+// Controller for Unsubscribe an existing User
 export const unsubscribe = async (req, res, next) => {
   try {
     try {
@@ -79,6 +84,7 @@ export const unsubscribe = async (req, res, next) => {
   }
 };
 
+// Controller for Like videos
 export const like = async (req, res, next) => {
   const id = req.user.id;
   const videoId = req.params.videoId;
@@ -93,6 +99,7 @@ export const like = async (req, res, next) => {
   }
 };
 
+// Controller for Dislike Videos
 export const dislike = async (req, res, next) => {
     const id = req.user.id;
     const videoId = req.params.videoId;
