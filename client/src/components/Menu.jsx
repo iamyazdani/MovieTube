@@ -91,7 +91,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
             <Img src={MovieTube} />
-            LamaTube
+            MovieTube
           </Logo>
         </Link>
         <Item>
@@ -104,13 +104,9 @@ const Menu = ({ darkMode, setDarkMode }) => {
             Explore
           </Item>
         </Link>
-        <Link
-          to="subscriptions"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
+        <Link to="subscriptions" style={{ textDecoration: "none", color: "inherit" }}>
           <Item>
-            <SubscriptionsOutlinedIcon />
-            Subscriptions
+            <SubscriptionsOutlinedIcon /> Subscriptions
           </Item>
         </Link>
         <Hr />
