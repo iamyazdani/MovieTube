@@ -19,6 +19,7 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 const Container = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.bgLighter};
@@ -28,9 +29,11 @@ const Container = styled.div`
   position: sticky;
   top: 0;
 `;
+
 const Wrapper = styled.div`
   padding: 18px 26px;
 `;
+
 const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -61,6 +64,7 @@ const Hr = styled.hr`
 `;
 
 const Login = styled.div``;
+
 const Button = styled.button`
   padding: 5px 15px;
   background-color: transparent;

@@ -7,6 +7,7 @@ import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -73,7 +74,7 @@ const SignIn = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // Dispatch hook comes from react redux
   const navigate = useNavigate()
 
   const handleLogin = async (e) => {
@@ -116,34 +117,20 @@ const SignIn = () => {
     <Container>
       <Wrapper>
         <Title>Sign in</Title>
-        <SubTitle>to continue to LamaTube</SubTitle>
-        <Input
-          placeholder="username"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <SubTitle>to continue to MovieTube</SubTitle>
+        <Input placeholder="username" onChange={(e) => setName(e.target.value)} />
+        <Input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
         <Button onClick={handleLogin}>Sign in</Button>
         <Title>or</Title>
         <Button onClick={signInWithGoogle}>Signin with Google</Button>
         <Title>or</Title>
-        <Input
-          placeholder="username"
-          onChange={(e) => setName(e.target.value)}
-        />
+        <Input placeholder="username" onChange={(e) => setName(e.target.value)} />
         <Input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
-        <Input
-          type="password"
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <Input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
         <Button>Sign up</Button>
       </Wrapper>
       <More>
-        English(USA)
+        English(US)
         <Links>
           <Link>Help</Link>
           <Link>Privacy</Link>
