@@ -10,7 +10,6 @@ import app from "../firebase";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -34,12 +33,14 @@ const Wrapper = styled.div`
   gap: 20px;
   position: relative;
 `;
+
 const Close = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
 `;
+
 const Title = styled.h1`
   text-align: center;
 `;
@@ -52,6 +53,7 @@ const Input = styled.input`
   background-color: transparent;
   z-index: 999;
 `;
+
 const Desc = styled.textarea`
   border: 1px solid ${({ theme }) => theme.soft};
   color: ${({ theme }) => theme.text};
@@ -59,6 +61,7 @@ const Desc = styled.textarea`
   padding: 10px;
   background-color: transparent;
 `;
+
 const Button = styled.button`
   border-radius: 3px;
   border: none;
@@ -68,9 +71,11 @@ const Button = styled.button`
   background-color: ${({ theme }) => theme.soft};
   color: ${({ theme }) => theme.textSoft};
 `;
+
 const Label = styled.label`
   font-size: 14px;
 `;
+
 const Upload = ({ setOpen }) => {
   const [img, setImg] = useState(undefined);
   const [video, setVideo] = useState(undefined);
