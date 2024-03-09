@@ -14,6 +14,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: calc(100vh - 56px);
+  // height: 100vh;
   color: ${({ theme }) => theme.text};
 `;
 
@@ -114,6 +115,7 @@ const SignIn = () => {
 
 
   return (
+    <>
     <Container>
       <Wrapper>
         <Title>Sign in</Title>
@@ -138,6 +140,7 @@ const SignIn = () => {
         </Links>
       </More>
     </Container>
+    </>
   );
 };
 
