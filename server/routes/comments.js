@@ -5,6 +5,7 @@ import {
     getComments
 } from "../controllers/comment.js";
 import {verifyToken} from "../verifyToken.js"
+
 const router = express.Router();
 
 // Create a Comment
