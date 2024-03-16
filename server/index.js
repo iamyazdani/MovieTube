@@ -20,23 +20,33 @@ dotenv.config();
 //   const connectionInstance = mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 //   .then (() => {
 //     // console.log(connectionInstance)
-//     // console.log(`MongoDB Connected Successfully!! DB HOST: ${connectionInstance.connection.host}`)
-//     console.log(`MongoDB Connected Successfully!!`);
+//     console.log(`MongoDB Connected Successfully!! DB HOST: ${connectionInstance.connection.host}`)
+//     // console.log(`MongoDB Connected Successfully!!`);
 //   })
 //   .catch ((error) => {
 //     console.error('MongoDB Connection Failed:', error)
 //   });
 // };
-
-const connect = () => {
-  mongoose.connect(process.env.MONGO)
-  .then(() => {
-    console.log("Connected to DB");    
-  })
-  .catch((err) => {
-    throw err;
-  });
+const connectDB = () => {
+  mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log(`MongoDB Connected Successfully!! DB HOST: ${mongoose.connection.host}`);
+    })
+    .catch((error) => {
+      console.error('MongoDB Connection Failed:', error);
+    });
 };
+
+
+// const connect = () => {
+//   mongoose.connect(process.env.MONGO)
+//   .then(() => {
+//     console.log("Connected to DB");    
+//   })
+//   .catch((err) => {
+//     throw err;
+//   });
+// };
 
 //middlewares
 app.use(cookieParser())
@@ -58,7 +68,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8800, () => {
-  connect();
+app.listen(3000, () => {
+  // connect();
+  connectDB();
   console.log("Connected to Server");
 });
