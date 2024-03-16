@@ -101,7 +101,6 @@ export const sub = async (req, res, next) => {
         return await Video.find({ userId: channelId });
       })
     );
-
     res.status(200).json(list.flat().sort((a, b) => b.createdAt - a.createdAt));
   } catch (err) {
     next(err);
