@@ -9,26 +9,37 @@ import cookieParser from "cookie-parser";
 // import userRoute from "./routes/users.js";
 
 const app = express();
-dotenv.config(
-  {
-    path: './.env'
-  }
-);
+dotenv.config();
+// dotenv.config(
+//   {
+//     path: './.env'
+//   }
+// );
 
-const connectDB = () => {
-  const connectionInstance = mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then (() => {
-    // console.log(connectionInstance)
-    // console.log(`MongoDB Connected Successfully!! DB HOST: ${connectionInstance.connection.host}`)
-    console.log(`MongoDB Connected Successfully!!`);
+// const connectDB = () => {
+//   const connectionInstance = mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then (() => {
+//     // console.log(connectionInstance)
+//     // console.log(`MongoDB Connected Successfully!! DB HOST: ${connectionInstance.connection.host}`)
+//     console.log(`MongoDB Connected Successfully!!`);
+//   })
+//   .catch ((error) => {
+//     console.error('MongoDB Connection Failed:', error)
+//   });
+// };
+
+const connect = () => {
+  mongoose.connect(process.env.MONGO)
+  .then(() => {
+    console.log("Connected to DB");    
   })
-  .catch ((error) => {
-    console.error('MongoDB Connection Failed:', error)
+  .catch((err) => {
+    throw err;
   });
 };
 
 //middlewares
-app.use(cookieParser());
+app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -47,7 +58,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT, () => {
-  connectDB();
+app.listen(8800, () => {
+  connect();
   console.log("Connected to Server");
 });
